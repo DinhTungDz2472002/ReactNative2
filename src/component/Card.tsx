@@ -2,13 +2,25 @@ import { StyleSheet, Text, View, Image, Pressable, Dimensions,TouchableOpacity }
 import React from 'react'
 import { Feather } from '@expo/vector-icons';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types';
 const {width, height} = Dimensions.get('window');
 
+interface CardProps{
+  id: string;
+  image:string;
+  title: string;
+  subtitle: string;
+}
 
+const Card = (props: CardProps) => {
 
-const Card = (props: any) => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card}
+    onPress={()=>navigation.navigate('Detail', {...props})}
+    >
         <View style={styles.mainCard}>
           <Image
                 style={styles.logo}
@@ -29,7 +41,7 @@ const Card = (props: any) => {
         </View>
         </View>
 
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -41,6 +53,7 @@ const styles = StyleSheet.create({
       flexDirection:'column',
       alignItems: 'center',
       justifyContent:'center',
+      marginTop: 20,
     }, 
     mainCard:{
       justifyContent:'flex-start',
@@ -48,11 +61,13 @@ const styles = StyleSheet.create({
       width: width*0.8,
       height: height*0.4,
       padding:30,
-      
+
+      backgroundColor: '#fff', // ❗ BẮT BUỘC CHO iOS
       shadowColor: '#000',            // iOS shadow màu đen
       shadowOffset: { width: 0, height: 4 },  // bóng lệch xuống 4px
       shadowOpacity: 0.3,             // độ mờ bóng
       shadowRadius: 6,                // độ mờ bóng
+      
       elevation: 8,                  // Android elevation (bóng)
       borderRadius: 16,               // bo góc shadow container
     },

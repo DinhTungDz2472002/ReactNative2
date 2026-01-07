@@ -11,21 +11,16 @@ const Data = Array.from({ length: 30 }, (_, i) => ({
 }));
 
 const List = () =>{
-    // const listCard = Array.from( {length: 30 }, (_,i)=>{ 
-    //     <Card key={i} />
-    // });
     return (
-            <View style ={styles.List}>
-             <FlatList
-                data={Data}                   // 1. Nguồn dữ liệu (Mảng của bạn)
-                renderItem={({ item }) => (   // 2. Cách hiển thị từng phần tử
-                    <Card {...item}/>
-                )}
-                keyExtractor={item => item.id} // 3. Định danh duy nhất cho mỗi dòng
-                />
-            </View> 
-
-
+        <View style ={styles.List}>
+            <FlatList
+            data={Data}                   // 1. Nguồn dữ liệu (Mảng của bạn)
+            renderItem={({ item }) => (   // 2. Cách hiển thị từng phần tử
+                <Card {...item}/>
+            )}
+            keyExtractor={item => item.id} // 3. Định danh duy nhất cho mỗi dòng
+            />
+        </View>
     )
 }
 

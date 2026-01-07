@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 function ListStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown:false}}>
       <Stack.Screen name="List" component={List} />
       <Stack.Screen name="Detail" component={Detail} />
     </Stack.Navigator>
