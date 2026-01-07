@@ -15,7 +15,6 @@ export default Search
 const styles = StyleSheet.create({
     Search:{
         height: 40,
-        margin: 8,
         borderWidth: 1,
         padding: 10,
         borderRadius:16,

@@ -16,9 +16,9 @@ const Tab = createBottomTabNavigator();
 
 function ListStack() {
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen name="List" component={List} />
-      <Stack.Screen name="Detail" component={Detail} />
+    <Stack.Navigator>
+      <Stack.Screen name="List" component={List} options={{ title: 'Danh sách Sản Phẩm' }} />
+      <Stack.Screen name="Detail" component={Detail} options={{ title: 'Chi Tiết Sản Phẩm' }} />
     </Stack.Navigator>
   );
 }
@@ -26,10 +26,10 @@ function ListStack() {
 export default function App() {
   return (
    
-    <NavigationContainer>
-      <Tab.Navigator>
+    <NavigationContainer >
+      <Tab.Navigator  screenOptions={{headerShown:false}}>
         <Tab.Screen name="HomeTab" component={Home} />
-        <Tab.Screen name="ListTab" component={ListStack} />
+        <Tab.Screen name="ListTab" component={ListStack} options={{ title: 'Danh sách Sản Phẩm' }}/>
       </Tab.Navigator>
     </NavigationContainer>
   );

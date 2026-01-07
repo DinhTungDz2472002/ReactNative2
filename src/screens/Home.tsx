@@ -2,8 +2,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const Home = () => {
+
+  console.log('helo');
   return (
-    <View>
+    <View style = {styles.Home}>
       <Text>Home</Text>
     </View>
   )
@@ -11,4 +13,8 @@ const Home = () => {
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  Home:{
+    margin:'auto',
+  }
+})

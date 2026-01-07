@@ -5,6 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/types';
+
 const {width, height} = Dimensions.get('window');
 
 interface CardProps{
@@ -15,7 +16,7 @@ interface CardProps{
 }
 
 const Card = (props: CardProps) => {
-
+  
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
     <TouchableOpacity style={styles.card}
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
       justifyContent:'flex-start',
       alignItems:'center',
       width: width*0.8,
-      height: height*0.4,
+      height: height*0.5,
       padding:30,
 
       backgroundColor: '#fff', // ❗ BẮT BUỘC CHO iOS
