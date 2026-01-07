@@ -2,6 +2,8 @@ import React from "react";
 import { View,Text, StyleSheet, FlatList  } from "react-native";
 import Card from "../component/Card";
 import { Feather } from '@expo/vector-icons';
+import { SafeAreaView } from "react-native-safe-area-context";
+import Search from "../component/Search";
 
 const Data = Array.from({ length: 30 }, (_, i) => ({
   id: i.toString(),
@@ -12,7 +14,9 @@ const Data = Array.from({ length: 30 }, (_, i) => ({
 
 const List = () =>{
     return (
-        <View style ={styles.List}>
+        
+        <SafeAreaView style ={styles.List}>
+            <Search/>
             <FlatList
             data={Data}                   // 1. Nguồn dữ liệu (Mảng của bạn)
             renderItem={({ item }) => (   // 2. Cách hiển thị từng phần tử
@@ -20,7 +24,7 @@ const List = () =>{
             )}
             keyExtractor={item => item.id} // 3. Định danh duy nhất cho mỗi dòng
             />
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -29,7 +33,7 @@ export default List;
 const styles = StyleSheet.create({
     List:{
         backgroundColor: '#fff',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
     },
 

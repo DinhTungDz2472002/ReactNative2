@@ -25,10 +25,7 @@ function ListStack() {
 
 export default function App() {
   return (
-    // <SafeAreaView style={styles.container}>
-    //   <Search/>
-    //   <List/>
-    // </SafeAreaView>
+   
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="HomeTab" component={Home} />
