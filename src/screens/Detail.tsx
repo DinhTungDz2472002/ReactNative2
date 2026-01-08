@@ -17,12 +17,15 @@ import {
 import { RootStackParamList } from '../navigation/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { getDetail } from '../services/posts';
+import ErrorView from '../component/ErrorView';
+import EmptyView from '../component/EmptyView';
 
 const { width, height } = Dimensions.get('window');
 
 const Detail = () => {
   const route = useRoute<RouteProp<RootStackParamList, 'Detail'>>();
   const [data, setData] = useState<any | null>(null);
+  const [error, setError] = useState(false);
   const { id } = route.params;
   useFocusEffect(
     useCallback(() => {
@@ -44,19 +47,26 @@ const Detail = () => {
   const fetchData = async () => {
     try {
       const res = await getDetail(id);
-      console.log(res);
+      // console.log(res);
       setData(res);
+      if (!res) {
+        setData([]);
+        return;
+      }
     } catch (error: any) {
-      console.log(error);
+      if (error.name === 'CanceledError' || error.name === 'AbortError') {
+        console.log('Fetch cancelled thành công!'); //log nếu request chưa chạy xong mà chuyển tab sang tab khác
+        return; // Dừng xử lý lỗi tiếp theo
+      }
+      setError(true);
     } finally {
     }
   };
   if (!data) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <EmptyView />;
+  }
+  if (error) {
+    return <ErrorView onRetry={fetchData} />;
   }
 
   return (

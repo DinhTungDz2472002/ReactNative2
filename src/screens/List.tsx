@@ -26,7 +26,7 @@ const List = () => {
       //polling môi 10s
       const intervalId = setInterval(() => {
         fetchData(signal);
-        console.log('poling 10s');
+        console.log('poling list 10s');
       }, 10000);
       return () => {
         console.log('BLUR - Hủy yêu cầu mạng');
