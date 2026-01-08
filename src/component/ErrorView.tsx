@@ -17,6 +17,7 @@ const ErrorView = ({onRetry}:Props) => {
   )
 }
 
+
 export default ErrorView
 
 const styles = StyleSheet.create({
