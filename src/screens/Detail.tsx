@@ -17,8 +17,8 @@ import {
 import { RootStackParamList } from '../navigation/types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { getDetail } from '../services/posts';
-import ErrorView from '../component/ErrorView';
-import EmptyView from '../component/EmptyView';
+import ErrorView from '../components/ErrorView';
+import EmptyView from '../components/EmptyView';
 
 const { width, height } = Dimensions.get('window');
 

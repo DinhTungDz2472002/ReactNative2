@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import Card from '../component/Card';
+import Card from '../components/Card';
 import { Feather } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Search from '../component/Search';
+import Search from '../components/Search';
 import { getList } from '../services/posts';
-import ErrorView from '../component/ErrorView';
-import EmptyView from '../component/EmptyView';
+import ErrorView from '../components/ErrorView';
+import EmptyView from '../components/EmptyView';
 import { useFocusEffect } from '@react-navigation/native';
 
 const List = () => {
