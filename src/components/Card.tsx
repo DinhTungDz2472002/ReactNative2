@@ -49,7 +49,7 @@ const Card = (props: CardProps) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);
 
 const styles = StyleSheet.create({
   card: {

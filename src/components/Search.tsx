@@ -2,11 +2,20 @@ import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
 import React from 'react';
 
 const { width, height } = Dimensions.get('window');
-interface SearchProps {}
-const Search = () => {
+
+interface Props {
+  value: string;
+  onChange: (text: string) => void;
+}
+const Search = ({ value, onChange }: Props) => {
   return (
     <View>
-      <TextInput style={styles.Search} placeholder="Search" />
+      <TextInput
+        value={value}
+        onChangeText={onChange}
+        style={styles.Search}
+        placeholder="Search"
+      />
     </View>
   );
 };
